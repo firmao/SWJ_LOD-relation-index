@@ -39,6 +39,8 @@
 \usepackage{xcolor}
 \usepackage{mdframed}
 \usepackage{siunitx}
+\sisetup{group-minimum-digits=4}
+%\usepackage[tight-spacing=true]{siunitx}
 \DeclareSIUnit{\nothing}{\relax}
 \usepackage{listings}
 \usepackage{csquotes}
@@ -810,18 +812,18 @@ The prototype is available online for proof of concept online\footnote{\url{http
 \label{tab:TableFmeasure}
 \resizebox{1.0\textwidth}{!}
 {
-\begin{tabular}{*{6}{c}} \hline
+\begin{tabular}{cccS[table-format=1.2e1]cc} \hline
     \textbf{Data set}           & \textbf{Source (S)} & \textbf{Target (T)} & \textbf{$|S| \times |T|$} & \textbf{Source Property} & \textbf{Target Property}                           \\ \hline
     
-    \textbf{(P3)}Abt-Buy    & Abt & Buy  & $1.20 \times 10^6$ & product name, description                       & product name, description                         \\
+    \textbf{(P3)}Abt-Buy    & Abt & Buy  & 1.20e6 & product name, description                       & product name, description                         \\
                                 &&&& manufacturer, price               & manufacturer, price                       \\ \hline
-    \textbf{(P4)}Amazon-GP  & Amazon & Google & $4.40 \times 10^6$ & product name, description                 & product name, description                         \\ 
+    \textbf{(P4)}Amazon-GP  & Amazon & Google & 4.40e6 & product name, description                 & product name, description                         \\ 
                                 && Products && manufacturer, price               & manufacturer, price                       \\ \hline
-    \textbf{(P5)}DBLP-ACM  & ACM & DBLP& $6.00 \times 10^6$ & title, authors                    & title, authors                            \\
+    \textbf{(P5)}DBLP-ACM  & ACM & DBLP& 6.00e6 & title, authors                    & title, authors                            \\
                                 &&&& venue, year                       & venue, year                               \\ \hline
-    \textbf{(P6)}DBLP-Scholar& DBLP & Google  & $ 0.17 \times 10^9$ & title, authors                    & title, authors                            \\
+    \textbf{(P6)}DBLP-Scholar& DBLP & Google  & 0.17e9 & title, authors                    & title, authors                            \\
                                 && Scholar && venue, year                       & venue, year                               \\ \hline
-    \textbf{(P7)}MOVIES   & DBpedia & LinkedMDB & $0.17 \times 10^9$ & dbp:name                          & dc2:title     \\
+    \textbf{(P7)}MOVIES   & DBpedia & LinkedMDB & 0.17e9 & dbp:name                          & dc2:title     \\
                                 &&&& dbo:director/dbp:name             & movie:director/movie:director\_name       \\
                                 &&&& dbo:producer/dbp:name             & movie:producer/movie:producer\_name       \\
                                 &&&& dbp:writer/dbp:name            & movie:writer/movie:writer\_name           \\
@@ -847,13 +849,14 @@ A large part of those data was processed and cleaned by LOD Laundromat~\cite{bee
 	\centering
 	\caption{Datasets.}
 	\label{tab:lodstats}
-    \begin{tabular}{|l|r|r|r|}
+    \scriptsize
+    \begin{tabular}{lS[table-format=11.0]S[table-format=12.0]S[table-format=12.0]} % all have 11 digits at most but 12 provides extra spacing
     \hline
     & \textbf{LOD Laundromat} & \textbf{LODStats} & \textbf{Total} \\ 
     \hline
-    \textbf{URIs indexed} & \num{4185},\num{133445} & \num{31121342} & \num{4216254787} \\ \hline
-    \textbf{Datasets checked} & \num{658206} & \num{9960} & \num{668166} \\ \hline
-    \textbf{Triples processed} & \num{19891702202} & \num{38606408854} & \num{58498111056} \\
+    \textbf{URIs indexed} & 4185133445 & 31121342 & 4216254787 \\ \hline
+    \textbf{Datasets checked} & 658206 & 9960 & 668166 \\ \hline
+    \textbf{Triples processed} & 19891702202 & 38606408854 & 58498111056 \\
     \hline
     \end{tabular}
 \end{table}
@@ -1034,7 +1037,7 @@ yago & yago2s-2013-05-08.hdt & \url{http://www.rdfhdt.org/datasets/} \\ \hline
 \end{table*}
 
 \begin{table*}[htb]
-\begin{tabular}{|c|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|c|S|S|S|S|S|S|S|S|S|S|S|S|S|S|S|S|S|S|S|S|}
 \hline
 \textbf{\rotatebox{45}{Coeficient}} & \textbf{\rotatebox{90}{acadonto}} & \textbf{\rotatebox{90}{acm.rkbexplorer}} & \textbf{\rotatebox{90}{agrinepaldata}} & \textbf{\rotatebox{90}{aims}} & \textbf{\rotatebox{90}{alaska}} & \textbf{\rotatebox{90}{apertium}} & \textbf{\rotatebox{90}{arrayexpress}} & \textbf{\rotatebox{90}{athelia}} & \textbf{\rotatebox{90}{bfs.270a}} & \textbf{\rotatebox{90}{biblioteca-nacional}} & \textbf{\rotatebox{90}{brown}} & \textbf{\rotatebox{90}{dblp}} & \textbf{\rotatebox{90}{dbpedia}} & \textbf{\rotatebox{90}{geonames}} & \textbf{\rotatebox{90}{linkedgeodata}} & \textbf{\rotatebox{90}{swdf}} & \textbf{\rotatebox{90}{vivosearch}} & \textbf{\rotatebox{90}{wiktionary}} & \textbf{\rotatebox{90}{wordnet}} & \textbf{\rotatebox{90}{yago}} \\ \hline
 \textbf{acadonto} & \cellcolor{green!100.0}1.0 & \cellcolor{green!4.0}0.04 & \cellcolor{green!16.0}0.16 & \cellcolor{green!20.0}0.20 & \cellcolor{green!0.0}0.00 & \cellcolor{green!4.0}0.04 & \cellcolor{green!24.0}0.24 & \cellcolor{green!16.0}0.16 & \cellcolor{green!4.0}0.04 & \cellcolor{green!4.0}0.04 & \cellcolor{green!4.0}0.04 & \cellcolor{green!4.0}0.04 & \cellcolor{green!0.0}0.00 & \cellcolor{green!4.0}0.04 & \cellcolor{green!4.0}0.04 & \cellcolor{green!8.0}0.08 & \cellcolor{green!20.0}0.20 & \cellcolor{green!4.0}0.04 & \cellcolor{green!4.0}0.04 & \cellcolor{green!10.0}0.10 \\ \hline
@@ -1064,8 +1067,8 @@ yago & yago2s-2013-05-08.hdt & \url{http://www.rdfhdt.org/datasets/} \\ \hline
 
 \begin{table}[htb]
 \centering
-\begin{tabular}{|l|c|c|c|} \hline
-\textbf{Dataset} & \textbf{\#ExactMatch} & \textbf{\#sim > 0.8} & \textbf{\#PropClas}s \\  \hline
+\begin{tabular}{lS[table-format=9.0]S[table-format=8.0]S[table-format=10.0]} \hline
+\textbf{Dataset} & \textbf{\#ExactMatch} & \textbf{\#sim > 0.8} & \textbf{\#PropClass} \\  \hline
 swdf & 22 & 64 & 288 \\ \hline
 yago & 6 & 65 & 373546 \\ \hline
 dblp & 6 & 9 & 41 \\ \hline
@@ -1140,9 +1143,9 @@ Where \textbf{DsPropMatch} on the \cref{tab:match} refers to the number of prope
 
 \begin{table}[htb]
     \centering
-    \begin{tabular}{|c|c|c|c|c|} \hline
-    \textbf{\#Datasets} & \textbf{\#DsPropMatch} & \textbf{time (seconds)} & \textbf{\#triples} & \textbf{Synthetic} \\ \hline
-    3 & 2 & 1 & 11 & Yes \\ \hline
+    \begin{tabular}{SSSS[table-format=8.0]c} \hline
+    \textbf{\#Datasets} & \textbf{\#DsPropMatch} & \textbf{time (s)} & \textbf{\#triples} & \textbf{Synthetic} \\ \hline
+    3 & 2 & 1 & 11 & yes \\ \hline
     10 & 7 & 2 & 1198508 & no \\ \hline
     100 & 39 & 12 & 7996408 & no \\ \hline
     200 & 92 & 40 & 22982984 & no \\ \hline

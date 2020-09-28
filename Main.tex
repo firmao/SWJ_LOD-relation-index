@@ -223,7 +223,7 @@ Our evaluation on state-of-the-art real-data shows that more than \SI{90}{\perce
 
 Due to the heterogeneity of the datasets, this uniqueness is reflected in the datasets structure, making it a hard task to find relations among those datasets, i.e. to identify how similar they are.
 In this way, we can say that Linked Data involves datasets and linksets and those linksets needs to be maintained.
-There are many ways to maintain linksets, one of those is to create a semantic web link repository, e.g. LinkLion \cite{linklion2014}.
+There are many ways to maintain linksets, one of those is to create a Semantic Web link repository, e.g. LinkLion \cite{linklion2014}.
 
 % Move 2 - Establishing a niche (highlighting gap; by indicating a gap in previous research or by extending previous knowledge in some way)
 % Move 3 - Occupying the niche (previewing new accomplishments; outlining purposes or stating the nature of the present research, research question or hypotheses, stating value)
@@ -244,7 +244,7 @@ In \cite{valdestilhas2019more} we show how to integrate and querying LOD dataset
 In this paper we will show an extention of those works\cite{valdestilhas2018my, valdestilhas2019more} showing how the datasets are related and how similar they are.
 To this aim we provide the LOD Dataset Relation Index called ReLOD, which provides information about how similar all the datasets from the LOD cloud are.%, including statistics about the current state of those datasets.
 
-%improvements on semantic web link repositories related to how the datasets are related and how similar they are, Identifying and querying those datasets.
+%improvements on Semantic Web link repositories related to how the datasets are related and how similar they are, Identifying and querying those datasets.
 
 \subsection{The need for identifying and querying LOD datasets}
 %\todo[inline]{WIMU and wimuQ.}
@@ -1214,7 +1214,7 @@ On the other hand, the \cref{fig:wimuQRelodResults} reinforces that more dataset
 \label{sec:conc}
 
 With WIMU~\cite{valdestilhas2018my}, we provide a database index of URIs and their respective datasets built upon large Linked Data hubs such as LODStats and LOD Laundromat.
-In order to make this data available and easy to use, we developed a semantic web service\footnote{\url{http://wimu.aksw.org/}}.
+In order to make this data available and easy to use, we developed a Semantic Web service\footnote{\url{http://wimu.aksw.org/}}.
 For a given URI, it is possible to know the dataset the URI likely was defined in using a heuristic based on the number of literals.
 
 With wimuQ\cite{valdestilhas2019more}, we presented an approach to execute SPARQL queries over a large amount of heterogeneous RDF data sources available from different interfaces and in different formats. We made use of the Wimu service to identify the potentially relevant sources to the qiven SPARQL query. We discussed two main types of federated SPARQL query processing approaches namely the endpoints federation and traversal-based federation. The former type of federation only able to execute federated queries over the data available from SPARQL endpoint. While the later, faces problem of URI's dereferenceability. To overcome these issues we proposed a hybrid (endpoints+link-traversal-based) federation engines which integrates four different types of SPARQL query processing engines. Currently, WimuQ\footnote{\url{https://w3id.org/wimuq/}} able to execute both federated and non-federated SPARQL queries over a total of \SI{668}{\kilo\nothing} datasets available from LOD Stats, LOD Laudromat, and LOD cloud active SPARQL endpoints. We evaluated WimuQ by using three state-of-the-art real-data SPARQL benchmarks. We showed that WimuQ is able to successful execute (with some results) majority of the benchmark queries without any prior knowledge of the data sources. In addition, the WimuQ resultset recall is higher with reasonable query execution times. 

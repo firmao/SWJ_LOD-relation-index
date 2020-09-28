@@ -812,23 +812,24 @@ The prototype is available online for proof of concept online\footnote{\url{http
 \label{tab:TableFmeasure}
 \resizebox{1.0\textwidth}{!}
 {
-\begin{tabular}{cccS[table-format=1.2e1]cc} \hline
-    \textbf{Data set}           & \textbf{Source (S)} & \textbf{Target (T)} & \textbf{$|S| \times |T|$} & \textbf{Source Property} & \textbf{Target Property}                           \\ \hline
+\begin{tabular}{lccS[table-format=1.2e1]cc}
+    \toprule
+    \textbf{Data set}           & \textbf{Source (S)} & \textbf{Target (T)} & \textbf{$|S| \times |T|$} & \textbf{Source Property} & \textbf{Target Property}                           \\ \midrule
     
-    \textbf{(P3)}Abt-Buy    & Abt & Buy  & 1.20e6 & product name, description                       & product name, description                         \\
-                                &&&& manufacturer, price               & manufacturer, price                       \\ \hline
-    \textbf{(P4)}Amazon-GP  & Amazon & Google & 4.40e6 & product name, description                 & product name, description                         \\ 
-                                && Products && manufacturer, price               & manufacturer, price                       \\ \hline
-    \textbf{(P5)}DBLP-ACM  & ACM & DBLP& 6.00e6 & title, authors                    & title, authors                            \\
-                                &&&& venue, year                       & venue, year                               \\ \hline
-    \textbf{(P6)}DBLP-Scholar& DBLP & Google  & 0.17e9 & title, authors                    & title, authors                            \\
-                                && Scholar && venue, year                       & venue, year                               \\ \hline
-    \textbf{(P7)}MOVIES   & DBpedia & LinkedMDB & 0.17e9 & dbp:name                          & dc2:title     \\
+    \textbf{(P3)} Abt-Buy    & Abt & Buy  & 1.20e6 & product name, description                       & product name, description                         \\
+                                &&&& manufacturer, price               & manufacturer, price                       \\ \midrule
+    \textbf{(P4)} Amazon-GP  & Amazon & Google & 4.40e6 & product name, description                 & product name, description                         \\ 
+                                && Products && manufacturer, price               & manufacturer, price                       \\ \midrule
+    \textbf{(P5)} DBLP-ACM  & ACM & DBLP& 6.00e6 & title, authors                    & title, authors                            \\
+                                &&&& venue, year                       & venue, year                               \\ \midrule
+    \textbf{(P6)} DBLP-Scholar& DBLP & Google  & 0.17e9 & title, authors                    & title, authors                            \\
+                                && Scholar && venue, year                       & venue, year                               \\ \midrule
+    \textbf{(P7)} MOVIES   & DBpedia & LinkedMDB & 0.17e9 & dbp:name                          & dc2:title     \\
                                 &&&& dbo:director/dbp:name             & movie:director/movie:director\_name       \\
                                 &&&& dbo:producer/dbp:name             & movie:producer/movie:producer\_name       \\
                                 &&&& dbp:writer/dbp:name            & movie:writer/movie:writer\_name           \\
                                 &&&& rdfs:label & rdfs:label           \\ 
-                                \hline
+    \bottomrule
 \end{tabular}
 }
 \end{table*}
@@ -851,13 +852,13 @@ A large part of those data was processed and cleaned by LOD Laundromat~\cite{bee
 	\label{tab:lodstats}
     \scriptsize
     \begin{tabular}{lS[table-format=11.0]S[table-format=12.0]S[table-format=12.0]} % all have 11 digits at most but 12 provides extra spacing
-    \hline
-    & \textbf{LOD Laundromat} & \textbf{LODStats} & \textbf{Total} \\ 
-    \hline
-    \textbf{URIs indexed} & 4185133445 & 31121342 & 4216254787 \\ \hline
-    \textbf{Datasets checked} & 658206 & 9960 & 668166 \\ \hline
+    \toprule
+    & \textbf{LOD Laundromat} & \textbf{LODStats} & \textbf{Total} \\
+    \midrule
+    \textbf{URIs indexed} & 4185133445 & 31121342 & 4216254787 \\
+    \textbf{Datasets checked} & 658206 & 9960 & 668166 \\
     \textbf{Triples processed} & 19891702202 & 38606408854 & 58498111056 \\
-    \hline
+    \bottomrule
     \end{tabular}
 \end{table}
 
@@ -978,8 +979,10 @@ The information contained at \cref{tab:simJaccard} and \cref{tab:contained} are 
 To answer the question (1) we give to our approach as input a version of the dataset DBpedia\footnote{\url{http://gaia.infor.uva.es/hdt/DBPedia-3.9-en.hdt.gz}}, that contains \num{2339} properties and classes, and as output we can obtain the most similar datasets\footnote{We compare with the datasets from \url{http://www.rdfhdt.org/datasets/}}. Thus we sorted those datasets in a way of Top 10 datasets more similar to DBpedia, according to the properties and classes they share. On the \cref{tab:top10} we show the number of properties that they share that contains the exact same URI and cases where they share not the exact URI but very similar\footnote{With similarity level greater than 0.8 according our similarity algorithm.}. Thus, an example of application could with a case when the user wants to identify information from other datasets to complement or enrich information for a given dataset, i.e. facilitating federated queries. The \cref{tab:match} shows a evaluation with 600 randonly chosen datasets\footnote{European statistics: HDT files from LOD Laundromat: Economic accounts for agriculture (aact) - \url{http://ec.europa.eu/eurostat/cache/metadata/en/aact_esms.htm}} including 3 synthetic manually made datasets.
 
 \begin{table*}[htb]
-\begin{tabular}{lll} \hline
-\textbf{Dataset} & \textbf{File} & \textbf{Repository} \\ \hline
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lll}
+\toprule
+\textbf{Dataset} & \textbf{File} & \textbf{Repository} \\
+\midrule
 acadonto & acadonto.nt.gz.hdt & \url{http://s001.adaptcentre.ie/lod/hdtdumps/} \\
 acm.rkbexplorer & acm.rkbexplorer.com\_id\_.nt.gz.hdt & \url{http://s001.adaptcentre.ie/lod/hdtdumps/} \\
 agrinepaldata & agrinepaldata.com\_.nt.gz.hdt & \url{http://s001.adaptcentre.ie/lod/hdtdumps/} \\
@@ -999,8 +1002,9 @@ linkedgeodata & linkedgeodata-2012-09-10.hdt & \url{http://www.rdfhdt.org/datase
 swdf & swdf-2012-11-28.hdt & \url{http://www.rdfhdt.org/datasets/} \\
 wiktionary & wiktionary\_en\_2012-07-21.hdt & \url{http://www.rdfhdt.org/datasets/} \\
 wordnet & wordnet31.hdt & \url{http://www.rdfhdt.org/datasets/} \\
-yago & yago2s-2013-05-08.hdt & \url{http://www.rdfhdt.org/datasets/} \\ \hline
-\end{tabular}
+yago & yago2s-2013-05-08.hdt & \url{http://www.rdfhdt.org/datasets/} \\
+\bottomrule
+\end{tabular*}
 \caption{Dataset description used on \cref{tab:simJaccard}, \cref{tab:contained} and \cref{tab:top10}}
 \label{tab:dsDesc}
 \end{table*}
@@ -1067,17 +1071,20 @@ yago & yago2s-2013-05-08.hdt & \url{http://www.rdfhdt.org/datasets/} \\ \hline
 
 \begin{table}[htb]
 \centering
-\begin{tabular}{lS[table-format=9.0]S[table-format=8.0]S[table-format=10.0]} \hline
-\textbf{Dataset} & \textbf{\#ExactMatch} & \textbf{\#sim > 0.8} & \textbf{\#PropClass} \\  \hline
-swdf & 22 & 64 & 288 \\ \hline
-yago & 6 & 65 & 373546 \\ \hline
-dblp & 6 & 9 & 41 \\ \hline
-linkedgeodata & 5 & 617 & 11799 \\ \hline
-wiktionary & 4 & 6 & 31 \\ \hline
-geonames & 4 & 12 & 27 \\ \hline
-wordnet & 3 & 26 & 69 \\ \hline
-wikidata & 0 & 5 & 427 \\ \hline
-freebase & 0 & 55 & 17587 \\ \hline
+\begin{tabular}{lS[table-format=9.0]S[table-format=8.0]S[table-format=10.0]}
+\toprule
+\textbf{Dataset} & \textbf{\#ExactMatch} & \textbf{\#sim > 0.8} & \textbf{\#PropClass} \\
+\midrule
+swdf & 22 & 64 & 288 \\
+yago & 6 & 65 & 373546 \\
+dblp & 6 & 9 & 41 \\
+linkedgeodata & 5 & 617 & 11799 \\
+wiktionary & 4 & 6 & 31 \\
+geonames & 4 & 12 & 27 \\
+wordnet & 3 & 26 & 69 \\
+wikidata & 0 & 5 & 427 \\
+freebase & 0 & 55 & 17587 \\
+\bottomrule
 \end{tabular}
 \caption{Top 10 datasets containing exact the same URI and containing the most similar URIs according to our similarity approach, in which \#PropClass represents the total number of properties and classes from the dataset. }
 \label{tab:top10}
@@ -1142,17 +1149,20 @@ The current version of the index prototype has information about 539 SPARQL endp
 Where \textbf{DsPropMatch} on the \cref{tab:match} refers to the number of properties/classes the datasets share among each other.
 
 \begin{table}[htb]
-    \centering
+\centering
     \begin{tabular}{SSSS[table-format=8.0]c} \hline
-    \textbf{\#Datasets} & \textbf{\#DsPropMatch} & \textbf{time (s)} & \textbf{\#triples} & \textbf{Synthetic} \\ \hline
-    3 & 2 & 1 & 11 & yes \\ \hline
-    10 & 7 & 2 & 1198508 & no \\ \hline
-    100 & 39 & 12 & 7996408 & no \\ \hline
-    200 & 92 & 40 & 22982984 & no \\ \hline
-    300 & 135 & 57 & 34792121 & no \\ \hline
-    400 & 186 & 73 & 43864522 & no \\ \hline
-    500 & 229 & 87 & 54227780 & no \\ \hline
-    600 & 291 & 425 & 85041239 & no \\ \hline
+    \toprule
+    \textbf{\#Datasets} & \textbf{\#DsPropMatch} & \textbf{time (s)} & \textbf{\#triples} & \textbf{Synthetic} \\
+    \midrule
+    3 & 2 & 1 & 11 & yes \\
+    10 & 7 & 2 & 1198508 & no \\
+    100 & 39 & 12 & 7996408 & no \\
+    200 & 92 & 40 & 22982984 & no \\
+    300 & 135 & 57 & 34792121 & no \\
+    400 & 186 & 73 & 43864522 & no \\
+    500 & 229 & 87 & 54227780 & no \\
+    600 & 291 & 425 & 85041239 & no \\
+    \bottomrule
     \end{tabular}
     \caption{Evaluation on the Match algorithm, where \textbf{DsPropMatch} refers to the number of properties/classes the datasets share among each other.}
     \label{tab:match}

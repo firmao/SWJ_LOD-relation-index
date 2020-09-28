@@ -38,9 +38,9 @@
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \usepackage{xcolor}
 \usepackage{mdframed}
-\usepackage{siunitx}
-\sisetup{group-minimum-digits=4}
+\usepackage[binary-units]{siunitx}
 %\usepackage[tight-spacing=true]{siunitx}
+\sisetup{group-minimum-digits=4}
 \DeclareSIUnit{\nothing}{\relax}
 \usepackage{listings}
 \usepackage{csquotes}
@@ -337,7 +337,7 @@ A similar point here is that the authors claim that for a given URI from an RDF 
 
 In the approach called LOD-A-LOT~\cite{fernandez2017lod}, which is a queryable dump file of the LOD Cloud\footnote{\url{http://lod-cloud.net/}}, there are some differences with WIMU.
 The first, it is not possible to know the provenance of the URI in order to know which dataset the URI was defined. 
-They provide a huge dump file\footnote{A HDT file with more than 500GB which requires more than 16 GB RAM to process.} containing all the data from LOD Laundromat\footnote{http://lodlaundromat.org/}.
+They provide a huge dump file\footnote{A HDT file with more than \SI{500}{\gibi\byte} which requires more than \SI{16 }{\gibi\byte} RAM to process.} containing all the data from LOD Laundromat\footnote{http://lodlaundromat.org/}.
 LOD Laundromat itself provides an endpoint to an inverted index of their data\footnote{\url{http://index.lodlaundromat.org/}}.
 However, finding the original document a URI was defined in is not trivial, as the returned metadata only describe the datasets themselves~\cite{beek2014lod}.
 Moreover, as the primary aim of LOD Laundromat is to \enquote{clean} Linked Data, most dumps are possibly not continuously monitored, once cleaned.
@@ -612,7 +612,7 @@ The function \textbf{printMaps}($\mathbf{M}_e, \mathbf{M}_s$) print the content 
 
 \subsection{Identifying duplicated and chunk datasets}
 \label{sec:duplicates}
-With the current hardware available (HD 1Tb, Memory 16GB, processor intel core i7).
+With the current hardware available (HD \SI{1}{\tebi\byte}, Memory \SI{16}{\gibi\byte}, processor Intel Core i7).
 To compare all LOD datasets, in this case more than 600 thousand datasets, implies in more than 360 billion of comparisons($n \cdot n$), assuming that each comparison takes on average 1 millisecond, the whole operation will take more than 10 years.
 
 Thus, we decided to have a blocking method to avoid unnecessary comparisons. To this aim, we create a way to detect duplicated and chunk-dump-files datasets, described on \cref{alg:iss1}. 
@@ -907,7 +907,7 @@ In this section, we present the evaluation setup and the corresponding results t
 \end{itemize}
 To the best of our knowledge, these are the state-of-the-art from the real-data SPARQL benchmarks. All of the 415 queries used in our evaluation is publicly available\footnote{Queries available from \url{https://github.com/firmao/wimuT/blob/master/queriesLocation.txt}}. 
 
-\subsubsection{Hardware:} All the experiments were done on a modest machine with 200 GB of Hard Disk, 8 GB of RAM and a 2.70GHz single core processor. Each of the queries was run 5 times and the average of the results are presented.  
+\subsubsection{Hardware:} All the experiments were done on a modest machine with \SI{200}{\gibi\byte} of Hard Disk, \SI{8}{\gibi\byte} of RAM and a \SI{2.70}{\GHz} single core processor. Each of the queries was run 5 times and the average of the results are presented.  
 
 \subsubsection{SPARQL endpoints:} As previously stated, the query federation over multiple SPARQL endpoints approaches requires the set of endpoint URLs to be provided as input to the federation engine. We chose a total of 539 active SPARQL endpoints available from LOD cloud\footnote{List of SPARQL endpoints: \url{https://lod-cloud.net/lod-data.json}}. We filtered the endpoints URLs\footnote{\label{endpoints}Endpoints URLs with size: \url{https://goo.gl/H2t5ko}} and the total number of triples hosted by each of these endpoints. 
 
@@ -915,8 +915,8 @@ To the best of our knowledge, these are the state-of-the-art from the real-data 
 
 \subsubsection{Approaches:} As mentioned in Section \ref{sec:related}, different federation engines available to federate SPARQL queries over endpoints and traversal-based federation. We chose FedX \cite{fedx2011} for SPARQL endpoint federation and SQUIN \cite{hartig2013squin} for traversal-based query federation. The reason for choosing these two engines is due the fact they do not require any pre-computation of dataset statistics and hence able to retrieve up-to-date results and able to run federated queries with zero initial knowledge. In addition, both these engines perform reasonably well in terms of query runtime performances w.r.t state-of-the-art approaches \cite{saleem2015fine,saleem2018costfed,hartig2013squin}. For the sake of completeness, we also compared WimuQ with SPARQL-a-lot and WimuDumps.  
 
-%In total, we processed more than 5 Terabytes of information from datasets retrieved using WIMU. None of ours experiment SPARQL query setups occupied more than 200 GB in disk. The source-code to reproduce the experiments is available online\footnote{\url{https://github.com/firmao/wimuT}}.
-%In case, the machine do not need to have more than 200 GB, because we start discarding the datasets when reach the limit of 200 GB according to the use
+%In total, we processed more than 5 Terabytes of information from datasets retrieved using WIMU. None of ours experiment SPARQL query setups occupied more than \SI{200}{\gibi\byte} in disk. The source-code to reproduce the experiments is available online\footnote{\url{https://github.com/firmao/wimuT}}.
+%In case, the machine do not need to have more than \SI{200}{\gibi\byte}, because we start discarding the datasets when reach the limit of \SI{200}{\gibi\byte} according to the use
 \subsubsection{Results}
 \textbf{Coverage of the results}: The main purpose of WimuQ is to devise a federation engine which is able to retrieve more complete results for the given SPARQL queries. %One of the most important results is the coverage of the results achieved by using each selected methods to compose the WimuQ. 
 \Cref{fig:numberRes1} shows a comparison of the selected approaches in terms of the average of the number of results retrieved for the different queries categories of the selected benchmarks. The complete results for individual queries can be found on our aforementioned project website. By using different query processing engines, our approach is able to retrieve more results as compared to the results retrieved by only using SPARQL endpoints federation engine (i.e, FedX) link traversal engine (i.e., SQUIN), data dumps, or  HDT files. In our evaluation, the average resultset size of WimuQ is \num{8481} across the three benchmarks. Out of these, WimuQ collects about \SI{91}{\percent} of the results from wimuDumps (avg. resultset size 7651), \SI{7}{\percent} from SPARQL endpoints (avg. resultset size 556), and \SI{1}{\percent} from SPARQL-a-lot (avg. resultset size 74). 

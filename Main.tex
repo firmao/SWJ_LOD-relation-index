@@ -516,7 +516,7 @@ Figure \ref{fig:approachWimuQ} shows the workflow of the query processing in our
 
 \begin{figure*}[htb] 
 	\centering
-	\includegraphics[width=0.8\linewidth]{llncs/img/wimuQ2.pdf}
+	\includegraphics[width=0.8\linewidth]{img/wimuQ2.pdf}
 	%\includegraphics[width=\linewidth]{img/wimuqArq.pdf}
 	\caption{Query processing workflow.}
 	\label{fig:approachWimuQ}
@@ -556,14 +556,14 @@ The goal of algorithm \ref{alg:indexCreation}\footnote{Implementation in Java \u
 
 \begin{figure*}[htb] 
 	\centering
-	\includegraphics[width=\linewidth]{llncs/img/createIndex.pdf}
+	\includegraphics[width=\linewidth]{img/createIndex.pdf}
 	\caption{Creating the index.}
 	\label{fig:create}
 \end{figure*}
 
 \begin{figure*}[htb] 
 	\centering
-	\includegraphics[width=\linewidth]{llncs/img/queryIndex.pdf}
+	\includegraphics[width=\linewidth]{img/queryIndex.pdf}
 	\caption{Querying the index.}
 	\label{fig:queryIndex}
 \end{figure*}
@@ -600,7 +600,7 @@ The function \textbf{getExactMatches}($\mathbf{d},\mathbf{t}$)) compares all pro
 The function \textbf{getSimMatches}($\mathbf{d},\mathbf{t}$, 0.8, $\mathbf{M}_e$) compares all properties and classes from each dataset $\mathbf{d}$ and $\mathbf{t}$ using Jaccard and MFKC\cite{valdestilhas2017high} String Similarity function with a threshold of 0.8, excluding the exact matches identified previously by the function \textbf{getExactMatches} returning a set of properties and classes that has the similary greater than the threshold 0.8, keeping the provenance of the dataset, the \cref{fig:simMatch} shows our string similarity process.
 \begin{figure*}[htb] 
 	\centering
-	\includegraphics[width=0.8\linewidth]{llncs/img/stringSim.pdf}
+	\includegraphics[width=0.8\linewidth]{img/stringSim.pdf}
 	\caption{String similarity process.}
 	\label{fig:simMatch}
 \end{figure*}
@@ -630,7 +630,7 @@ In this second phase, we have a sub-collection of our initial collection of data
 
 \begin{figure*}[htb] 
     \centering
- 	\includegraphics[width=0.8\linewidth]{llncs/img/propertyOccurence.png}
+ 	\includegraphics[width=0.8\linewidth]{img/propertyOccurence.png}
  	\caption{The standard observed in the dense matrix, showing that for some datasets the occurrence of the properties was exactly the same, in this case a sample with 11 datasets with 7 dataset chunks identified.}
  	\label{fig:propOccurence}
 \end{figure*}
@@ -784,21 +784,21 @@ The prototype is available online for proof of concept online\footnote{\url{http
 
 % \begin{figure}[htb] 
 % 	\centering
-% 	\includegraphics[width=\linewidth]{llncs/img/datasetMatch.pdf}
+% 	\includegraphics[width=\linewidth]{img/datasetMatch.pdf}
 % 	\caption{Example of dataset match.}
 % 	\label{fig:datasetMatch}
 % \end{figure}
 
 % \begin{figure}[htb] 
 % 	\centering
-% 	\includegraphics[width=\linewidth]{llncs/img/exactMatch.pdf}
+% 	\includegraphics[width=\linewidth]{img/exactMatch.pdf}
 % 	\caption{Example of exact match.}
 % 	\label{fig:exactMatch}
 % \end{figure}
 
 % \begin{figure}[htb] 
 % 	\centering
-% 	\includegraphics[width=\linewidth]{llncs/img/similarMatch.pdf}
+% 	\includegraphics[width=\linewidth]{img/similarMatch.pdf}
 % 	\caption{Example of similar match.}
 % 	\label{fig:similarMatch}
 % \end{figure}
@@ -880,7 +880,7 @@ To see how and where people are using WIMU the \cref{fig:wimuUsage} shows the us
 
 \begin{figure}[htp] 
 	\centering
-	\includegraphics[width=\linewidth]{llncs/img/wimuUsage.png}
+	\includegraphics[width=\linewidth]{img/wimuUsage.png}
 	\caption{The usage of WIMU.}
 	\label{fig:wimuUsage}
 \end{figure}
@@ -1121,14 +1121,14 @@ The \cref{fig:identChunks} show how many chunks we were able to identify among o
 
 \begin{figure}[htb] 
 	\centering
-	\includegraphics[width=\linewidth]{llncs/img/DsDuplicate.png}
+	\includegraphics[width=\linewidth]{img/DsDuplicate.png}
 	\caption{Duplicates identified in 900 datasets. Y axis represents the number of datasets.}
 	\label{fig:identDuplicates}
 \end{figure}
 
 \begin{figure}[htb] 
 	\centering
-	\includegraphics[width=\linewidth]{llncs/img/DsChunks.png}
+	\includegraphics[width=\linewidth]{img/DsChunks.png}
 	\caption{Chunks identified in 900 datasets. Y axis represents the number of datasets.}
 	\label{fig:identChunks}
 \end{figure}
@@ -1160,14 +1160,14 @@ We evaluate the accuracy of our matching algorithm with a small sample, where we
 
 \begin{figure}[htb] 
 	\centering
-	\includegraphics[width=\linewidth]{llncs/img/fmeasure.png}
+	\includegraphics[width=\linewidth]{img/fmeasure.png}
 	\caption{F-measure of our string similarity.}
 	\label{fig:fmeasure}
 \end{figure}
 
 \begin{figure}[htb] 
 	\centering
-	\includegraphics[width=\linewidth]{llncs/img/runtime.png}
+	\includegraphics[width=\linewidth]{img/runtime.png}
 	\caption{Runtime of our string similarity.}
 	\label{fig:runtimeSimilarMatch}
 \end{figure}
@@ -1184,14 +1184,14 @@ On the other hand, the \cref{fig:wimuQRelodResults} reinforces that more dataset
 
 \begin{figure}[htb] 
 	\centering
-	\includegraphics[width=\linewidth]{llncs/img/wimuQRelodDatasets.png}
+	\includegraphics[width=\linewidth]{img/wimuQRelodDatasets.png}
 	\caption{Improvement on the number of datasets identified by wimuQ using ReLOD.}
 	\label{fig:wimuQRelodDatasets}
 \end{figure}
 
 \begin{figure}[htb] 
 	\centering
-	\includegraphics[width=\linewidth]{llncs/img/wimuq_relod_results.png}
+	\includegraphics[width=\linewidth]{img/wimuq_relod_results.png}
 	\caption{Improvement on the number of results identified by wimuQ using ReLOD. (Vertical axis in log scale).}
 	\label{fig:wimuQRelodResults}
 \end{figure}

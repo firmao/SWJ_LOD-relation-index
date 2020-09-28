@@ -241,7 +241,7 @@ We present and discuss the need to identify and query the relation of those data
 
 To deal with the need for identifying LOD Datasets, we created called "Where is my URI?"(WIMU)~\cite{valdestilhas2018my} a regularly updated database index of more than \SI{660}{\kilo\nothing} datasets from LODStats and LOD Laundromat, an efficient, low cost and scalable service on the web that shows, which dataset most likely defines a URI and various statistics of datasets indexed from LODStats and LOD Laundromat.
 In \cite{valdestilhas2019more} we show how to integrate and querying LOD datasets, we provide a hybrid SPARQL query processing engine that is able to retrieve results from 559 active SPARQL endpoints (with a total of 163.23 billion triples) and \num{668166} datasets (with a total of 58.49 billion triples) from LOD Stats and LOD Laudromat.
-In this paper we will show an extention of those works\cite{valdestilhas2018my, valdestilhas2019more} showing how the datasets are related and how similar they are.
+In this paper we will show an extention of those works~\cite{valdestilhas2018my, valdestilhas2019more} showing how the datasets are related and how similar they are.
 To this aim we provide the LOD Dataset Relation Index called ReLOD, which provides information about how similar all the datasets from the LOD cloud are.%, including statistics about the current state of those datasets.
 
 %improvements on Semantic Web link repositories related to how the datasets are related and how similar they are, Identifying and querying those datasets.
@@ -250,12 +250,12 @@ To this aim we provide the LOD Dataset Relation Index called ReLOD, which provid
 %\todo[inline]{WIMU and wimuQ.}
 One of the Semantic Web foundations is the possibility to dereference URIs to let applications negotiate their semantic content.
 However, this exploitation is often infeasible as the availability of such information depends on the reliability of networks, services, and human factors.
-Moreover, it has been shown that around \SI{90}{\percent} of the information published as Linked Open Data is available as data dumps and more than \SI{60}{\percent} of endpoints are offline\cite{hogan2016linked}.
+Moreover, it has been shown that around \SI{90}{\percent} of the information published as Linked Open Data is available as data dumps and more than \SI{60}{\percent} of endpoints are offline~\cite{hogan2016linked}.
 To this end, there is a need for a service to \textit{identify}, in which dataset a URI is defined, in order to let Linked Data consumers find the respective RDF data source, in case such information cannot be retrieved from the URI alone.
 
 In order to \textbf{query} such an amount of LOD datasets, various interfaces, such as LOD Stats \cite{auer2012lodstats}, LOD Laudromat \cite{beek2014lod}, and SPARQL endpoints provide access to the hundreds of thousands of RDF datasets, representing billions of facts.
 These datasets are available in different formats such as raw data dumps, HDT files, or directly accessible via SPARQL endpoints.
-Querying such a large amount of distributed data is particularly challenging and many of these datasets cannot be directly queried using the SPARQL query language. %To deal with such problems we present WIMU~\cite{valdestilhas2018my} and wimuQ\cite{ValdestilhasKcap}.
+Querying such a large amount of distributed data is particularly challenging and many of these datasets cannot be directly queried using the SPARQL query language. %To deal with such problems we present WIMU~\cite{valdestilhas2018my} and wimuQ~\cite{ValdestilhasKcap}.
 
 \subsection{The need for integration and relation of LOD datasets}
 
@@ -296,31 +296,31 @@ Thus, having an index of dataset relation will help in this case.
 
 \subsection{Compliance with Linked Data rules and LOD Cloud}
 %\todo[inline]{tr: Better Compliance with \sout{the four} Linked Data rules and LOD Cloud}
-Aware of the four rules on Linked Data\cite{designissues-linkeddata}, we justify our work concerning these rules.%\todo[inline]{kh: are you sure you need to include this? as far as I know, the semantic journal uses another 5 star scheme and requires it only for linked data set descriptions: \url{http://www.semantic-web-journal.net/content/five-stars-linked-data-vocabulary-use}. }
+Aware of the four rules on Linked Data~\cite{designissues-linkeddata}, we justify our work concerning these rules.%\todo[inline]{kh: are you sure you need to include this? as far as I know, the semantic journal uses another 5 star scheme and requires it only for linked data set descriptions: \url{http://www.semantic-web-journal.net/content/five-stars-linked-data-vocabulary-use}. }
 (1) \textit{Use URIs as names for things}, in which all the work presented here uses URIs as names for things, and WIMU~\cite{valdestilhas2018my} is the largest index to locate datasets containing a given URI.
-(2) \textit{Use HTTP URIs so that people can look up those names}, where WIMU~\cite{valdestilhas2018my} is an index allowing people lookup datasets for a given URI. Facilitating people to look up those names. (3) \textit{When someone looks up a URI, provide useful information, using the standards (RDF*, SPARQL)}. Our approach, WimuQ\cite{valdestilhas2019more}, allows obtaining information from URIs non-dereferenceable anymore, providing more source of data, making an Intelligent Source Selection to achieve more results from a given SPARQL query. (4) \textit{Include links to other URIs, so that they can discover more things}. ReLOD, which is the extension of WIMU and WIMUQ, which has the aim of identifying similar datasets that share properties and classes, by using the WIMU lookup index, the user can lookup datasets from a given URI and by using WIMUQ to dereference URIs non-dereferenceable anymore. ReLOD allows for discovering more information by the similarity of the datasets, for a given input that can be a Dataset, Property, Class, or SPARQL query.
+(2) \textit{Use HTTP URIs so that people can look up those names}, where WIMU~\cite{valdestilhas2018my} is an index allowing people lookup datasets for a given URI. Facilitating people to look up those names. (3) \textit{When someone looks up a URI, provide useful information, using the standards (RDF*, SPARQL)}. Our approach, WimuQ~\cite{valdestilhas2019more}, allows obtaining information from URIs non-dereferenceable anymore, providing more source of data, making an Intelligent Source Selection to achieve more results from a given SPARQL query. (4) \textit{Include links to other URIs, so that they can discover more things}. ReLOD, which is the extension of WIMU and WIMUQ, which has the aim of identifying similar datasets that share properties and classes, by using the WIMU lookup index, the user can lookup datasets from a given URI and by using WIMUQ to dereference URIs non-dereferenceable anymore. ReLOD allows for discovering more information by the similarity of the datasets, for a given input that can be a Dataset, Property, Class, or SPARQL query.
 
 Concerning the LOD-cloud dataset, which currently contains \num{1239} datasets with \num{16147} links (as of March 2019)\cite{lodcloud}. There are more than \num{600000} datasets from LODLaundromat, LODStats, and public SPARQL endpoints. One of our intentions is to provide ways to build a new version of the LOD-cloud with all those more than \SI{600}{\kilo\nothing} datasets, to help this aim we provide an index containing the similarity level of the datasets. As a first step, we present the ReLOD, showing a methodology to store the similarity level of all datasets. The index is queryable, accepting as input the dataset, SPARQL query, properties and classes, and giving as output the respective similar datasets, properties, and classes.
 
 %The contributions of this paper are:
-To deal with all needs presented before we create an integrated approach to identify, relate and query a massive amount of heterogeneous RDF sources, in which join the two previous works\cite{valdestilhas2018my, valdestilhas2019more} 
+To deal with all needs presented before we create an integrated approach to identify, relate and query a massive amount of heterogeneous RDF sources, in which join the two previous works~\cite{valdestilhas2018my, valdestilhas2019more} 
 With this new approach to deal with the similarity of the datasets, we obtained some improvements, such as the identification of more datasets and more results, where the original contributions of this paper are listed below:
 \begin{itemize}
     \item A method to create an incremental index of similarity among LOD datasets. Thus, to the best of our knowledge, ReLOD is the first dataset relation index over a net total of 221.7 billion triples.
     \item Creation of a mechanism to search this index by Dataset URI, property, class or SPARQL query. For the first time, to the best of our knowledge, we make a relation index that is able to query by dataset URI, property, class or SPARQL query.
     \item A method to identify duplicated datasets and chunks.
-    \item Improvement of the source selection, increasing the number of datasets identified by wimuQ\cite{valdestilhas2019more}.
-    %\item The number of datasets identified by wimuQ\cite{valdestilhas2019more} was increased due to the use of the new ReLOD index.
+    \item Improvement of the source selection, increasing the number of datasets identified by wimuQ~\cite{valdestilhas2019more}.
+    %\item The number of datasets identified by wimuQ~\cite{valdestilhas2019more} was increased due to the use of the new ReLOD index.
 \end{itemize}
 
-%This paper is an extension from\cite{valdestilhas2018my} and \cite{valdestilhas2019more}, in which the new contributions are related to the \textsc{ReLOD} - The incremental LOD Dataset relation index, present on \cref{sec:relod}, \cref{sec:relod_rel} and \cref{sec:relod_eval}.
+%This paper is an extension from~\cite{valdestilhas2018my} and \cite{valdestilhas2019more}, in which the new contributions are related to the \textsc{ReLOD} - The incremental LOD Dataset relation index, present on \cref{sec:relod}, \cref{sec:relod_rel} and \cref{sec:relod_eval}.
 The new contributions are presented in more details on \cref{sec:relod_rel}, \cref{sec:relod}, and \cref{sec:relod_eval} and the rest of the paper is organized as follows:
 \Cref{sec:related} presents related works, followed by our approach in \Cref{sec:approach}. \Cref{sec:eval} shows the evaluation results and discussion. Finally, \Cref{sec:conc} concludes the paper along with future directions.
 
 \section{State of the art}
 \label{sec:related}
 
-In this section we will present the state of the art relate to Identfying datasets with WIMU~\cite{valdestilhas2018my}, Querying and source selection with wimuQ\cite{valdestilhas2019more} and relating datasets with ReLOD.
+In this section we will present the state of the art relate to Identfying datasets with WIMU~\cite{valdestilhas2018my}, Querying and source selection with wimuQ~\cite{valdestilhas2019more} and relating datasets with ReLOD.
 
 \subsection{Identifying LOD datasets}
 The state-of-the-art of identifying LOD datasets is presented in the following and highlighting the differences with our approach.
@@ -380,7 +380,7 @@ MULDER describes data sources in terms of RDF molecule templates and utilize the
 
 DAW \cite{daw2013} and Fedra \cite{fedra2015} are examples of duplicate-aware query federation approaches over multiple SPARQL endpoints.
 
-SaGe\cite{DBLP:journals/corr/abs-1806-00227} is a stateless preemptable SPARQL query engine for public endpoints.
+SaGe~\cite{DBLP:journals/corr/abs-1806-00227} is a stateless preemptable SPARQL query engine for public endpoints.
 The system makes use of preemptable query plans and time-sharing scheduling.
 SaGe tackles the problem of RDF data availability for complex queries in public endpoints.
 Consequently, SaGe provides a convenient alternative to the current practice of copying RDF data dumps.
@@ -412,9 +412,9 @@ The provenance system of WimuQ also includes dump files and endpoints with a ran
 The works from Asprino et al. \cite{asprino2019linked,asprino2019observing,asprino2019triplifying} present important statistics about LOD datasets, including a data structure called Equivalence Set Graph (ESG) that allows specifying compact views of large RDF graphs thus easing the accomplishment of statistical observations such as the number of concepts defined in a graph.
 Their work helps to show that LOD datasets are not really linked and the main difference here is that they do not have a goal to compute similarity level among the datasets based on the properties and class similarities.
 
-An alternative considered was to find similar datasets using Topic Modelling\cite{roder2016detecting}, this approach relies on probabilistic topic modelling to determine related datasets by relying solely on the metadata of datasets. It was a good idea, but unfortunately, the majority of datasets we found does not have the expected metadata. 
+An alternative considered was to find similar datasets using Topic Modelling~\cite{roder2016detecting}, this approach relies on probabilistic topic modelling to determine related datasets by relying solely on the metadata of datasets. It was a good idea, but unfortunately, the majority of datasets we found does not have the expected metadata. 
 
-The work from\cite{ellefi2016dataset} introduces a dataset recommendation approach to identify linking candidates based on the presence of schema overlap between datasets. They use the concept of dataset profiles, where a dataset is characterized through a set of schema concept labels that best describe it and can be potentially enriched by retrieving their textual descriptions. We try to use the same concept, but we need to deal with more than textual descriptions, i.e., URIs and different serializations.
+The work from~\cite{ellefi2016dataset} introduces a dataset recommendation approach to identify linking candidates based on the presence of schema overlap between datasets. They use the concept of dataset profiles, where a dataset is characterized through a set of schema concept labels that best describe it and can be potentially enriched by retrieving their textual descriptions. We try to use the same concept, but we need to deal with more than textual descriptions, i.e., URIs and different serializations.
 
 Loupe \cite{mihindukulasooriya2016two} has an index of property and classes from some datasets, but still fewer datasets and it is not incremental. 
 
@@ -435,7 +435,7 @@ They process numbers of occurrences of matching pairs of RDF triples to assess i
 As a result, they obtain a graph of equivalent properties where interval-based strength of edges represent degrees of similarity between properties.
 The idea is similar to ReLOD, getting the similarity according to the number of properties the dataset share, they have an experiment with getting the similarity between DBpedia and Wikidata, where ReLOD experiments are with more than 600 datasets and ReLOD also consider classes to obtain the similarity score.
 
-An quantitative empirical survey, where 130 datasets from the LOD Cloud were evaluated, gives insights into current quality conformance of the LOD Cloud datasets\cite{debattista2018evaluating} and shows that quality issues in datasets have severe implications on consumers who rely on information from the Web
+An quantitative empirical survey, where 130 datasets from the LOD Cloud were evaluated, gives insights into current quality conformance of the LOD Cloud datasets~\cite{debattista2018evaluating} and shows that quality issues in datasets have severe implications on consumers who rely on information from the Web
 of Data.
 Similar to this study, they also take in consideration a large scale amount of data.
 The difference is that the study does not cover how similar the datasets are.
@@ -451,7 +451,7 @@ They provide an approach for attribute clustering and comparison scheduling, ide
 They have a technique called \textit{Data Blocking}, which cluster similar entities into blocks and performs comparisons only among entities in the same block.
 It is an excellent blocking approach, but the method assumes that there is no dirty data among the relations, that means, for instance, that they assume all \textit{owl:sameAs} links as true and there is no study about the similarity level among the datasets.
  
-The approach\cite{hassanzadeh2013discovering} replaces the basic schema matching, showing that even attributes with different meaning can sometimes be useful in aligning data.
+The approach~\cite{hassanzadeh2013discovering} replaces the basic schema matching, showing that even attributes with different meaning can sometimes be useful in aligning data.
 They provide three algorithms for search linkage points of similarity, find overlaps using a sample and filtering.
 The output is a ranked list of pairs of paths ($p_s, p_t$) in which the rank do not bring matches, but possibilities in which are not similar and not applied to a large amount of LOD datasets.
 
@@ -461,7 +461,7 @@ They integrate equivalent entities in a more holistic manner such that equivalen
 Such a clustering facilitates the combination of the property values of all clustered entities, e. g., persons, products, cities, etc, keeping the provenance from the sources of the entities. The approach was build to cluster entities, not LOD datasets, which we cannot use the same concepts here; also, the approach assumes that there are no duplicates within data sources.
 The evaluation uses a subset of 5 datasets, in which the focus was to evaluate the method, not apply to huge data, which is understandable because once they use huge data, they also need a huge gold standard to evaluate.
 
-The work presented in\cite{rekatsinas2015finding} provides a new data source management system that automatically assesses the quality of data sources based on a collection of rigorous data quality metrics and enables the automated and interactive discovery of valuable sources for user applications.
+The work presented in~\cite{rekatsinas2015finding} provides a new data source management system that automatically assesses the quality of data sources based on a collection of rigorous data quality metrics and enables the automated and interactive discovery of valuable sources for user applications.
 The system explores the trade-off between accuracy and coverage and allows users to discover the most relevant data sources for their application.
 They argue that the proposed method can dramatically simplify the Discover-Appraise-Evaluate interaction loop that many users follow today to identify sources for their applications.
 The difference here is that there is no approach for dataset similarity, and it is not applied for RDF datasets.
@@ -469,24 +469,24 @@ The difference here is that there is no approach for dataset similarity, and it 
 The best practice to query interlinked datasets is provided by WoDQA (Web of Data Query Analyzer)\cite{akar2012querying}, which discovers datasets relevant to a query in an automated manner using VOID documents as metadata.
 Unfortunately, people are not following and we still have a huge amount of dirty datasets, which also reinforce the need for our approach.
 
-The paper\cite{peukert2010comparing} introduces the rationale of each strategy shortly.
+The paper~\cite{peukert2010comparing} introduces the rationale of each strategy shortly.
 Then, they evaluate the most commonly used methods on a number of mapping tasks and try to find the most robust strategy that behaves well across all given tasks.
 The method is quite clear and possible to follow.
 They show a study about approaches to finding mappings between complex schemas where the rationale of each strategy shortly, evaluate and find the most robust strategy.
 Unfortunately, the study is not applied to LOD RDF datasets, neither to a huge amount of datasets and there is no study about the similarity among the datasets.
 
-The method introduced in\cite{xie2018instance} is quite clear and possible to follow, in which they use \textit{owl:sameAs} links to help in property matching.
+The method introduced in~\cite{xie2018instance} is quite clear and possible to follow, in which they use \textit{owl:sameAs} links to help in property matching.
 The method is organized into two steps:
 (1) Extract sameAs and transform it into tables.
 (2) Apply table matching techniques and propose a matching criterion to find relationships between properties.
 They use similarity functions, including string similarity and numeric similarity.
 A difference here is that they assume existing a \textit{owl:sameAs} relation, which cannot be applied to thousands of HDT files, and the approach only relies on \textit{owl:sameAs} links. 
 
-We also consider the Mapping Languages, which are used to create mappings among datasets. This position paper\cite{de2019mapping} starts an essential discussion about the relation of the datasets on Semantic Web. Another point to consider here is that this study reinforces the need for an approach to relate a large amount of heterogeneous RDF datasets.
+We also consider the Mapping Languages, which are used to create mappings among datasets. This position paper~\cite{de2019mapping} starts an essential discussion about the relation of the datasets on Semantic Web. Another point to consider here is that this study reinforces the need for an approach to relate a large amount of heterogeneous RDF datasets.
 
-The ENTITY RECONCILIATION COMMUNITY GROUP\footnote{\url{https://www.w3.org/community/reconciliation/}}, are doing valuable work, in which aim to document an existing API, share the experiences and lessons learned from it\cite{DBLP:journals/corr/abs-1906-08092}.
+The ENTITY RECONCILIATION COMMUNITY GROUP\footnote{\url{https://www.w3.org/community/reconciliation/}}, are doing valuable work, in which aim to document an existing API, share the experiences and lessons learned from it~\cite{DBLP:journals/corr/abs-1906-08092}.
 
-We cannot finish this section without taking into consideration the valuable thoughts over the current state of Linked Data, described on the paper\cite{verborgh_swj_2020}. In which discuss the identity crisis on the Semantic Web community, how things are being related, and highlight the considerable problems that arise when we try to deploy semantics at Web-scale, reinforcing the need for a study about the relations over an extensive collection of datasets.
+We cannot finish this section without taking into consideration the valuable thoughts over the current state of Linked Data, described on the paper~\cite{verborgh_swj_2020}. In which discuss the identity crisis on the Semantic Web community, how things are being related, and highlight the considerable problems that arise when we try to deploy semantics at Web-scale, reinforcing the need for a study about the relations over an extensive collection of datasets.
 
 Those works cover an important relationship but none of them look into our main drawback here, which is to obtain the similarity level among a huge amount of datasets.
 
@@ -600,7 +600,7 @@ The goal of algorithm \ref{alg:indexCreation}\footnote{Implementation in Java \u
 
 The function \textbf{getExactMatches}($\mathbf{d},\mathbf{t}$)) compares all properties and classes from each dataset $\mathbf{d}$ and $\mathbf{t}$ and return a set of properties and classes that are exact the same, keeping the provenance of the dataset.
 
-The function \textbf{getSimMatches}($\mathbf{d},\mathbf{t}$, 0.8, $\mathbf{M}_e$) compares all properties and classes from each dataset $\mathbf{d}$ and $\mathbf{t}$ using Jaccard and MFKC\cite{valdestilhas2017high} String Similarity function with a threshold of 0.8, excluding the exact matches identified previously by the function \textbf{getExactMatches} returning a set of properties and classes that has the similary greater than the threshold 0.8, keeping the provenance of the dataset, the \cref{fig:simMatch} shows our string similarity process.
+The function \textbf{getSimMatches}($\mathbf{d},\mathbf{t}$, 0.8, $\mathbf{M}_e$) compares all properties and classes from each dataset $\mathbf{d}$ and $\mathbf{t}$ using Jaccard and MFKC~\cite{valdestilhas2017high} String Similarity function with a threshold of 0.8, excluding the exact matches identified previously by the function \textbf{getExactMatches} returning a set of properties and classes that has the similary greater than the threshold 0.8, keeping the provenance of the dataset, the \cref{fig:simMatch} shows our string similarity process.
 \begin{figure*}[htb] 
 	\centering
 	\includegraphics[width=0.8\linewidth]{img/stringSim.pdf}
@@ -839,7 +839,7 @@ The prototype is available online for proof of concept online\footnote{\url{http
 
 \subsection{Evaluation on Identifying LOD datasets}
 
-To the best of our knowledge, LODStats\cite{auer2012lodstats} is the only project oriented to monitoring dump files; however, its last update dates back to 2016. 
+To the best of our knowledge, LODStats~\cite{auer2012lodstats} is the only project oriented to monitoring dump files; however, its last update dates back to 2016. 
 Observing \Cref{tab:lodstats}, we are able to say that from LODStats, not all datasets are ready to use.
 Especially, more than \SI{58}{\percent} are off-line, \SI{14}{\percent} are empty datasets, \SI{8}{\percent} of the triples that have literals as objects are blank nodes and \SI{35}{\percent} of the online datasets present some error using the Apache Jena parser\footnote{See \url{https://github.com/dice-group/wimu/blob/master/ErrorJenaParser.tsv}.}. 
 A large part of those data was processed and cleaned by LOD Laundromat~\cite{beek2014lod}.
@@ -899,7 +899,7 @@ In this section, we present the evaluation setup and the corresponding results t
 \subsubsection{Benchmarks used:} Since WimuQ aims to execute SPARQL queries over real-world RDF datasets, we chose three -- FedBench \cite{fedbench2011}, LargeRDFBench \cite{largerdfbench2017}, Feasible \cite{feasible2015} -- real-world RDF datasets benchmarks in our evaluation: 
 \begin{itemize}
   
-\item \textbf{FedBench} is federated SPARQL querying benchmarks. It comprises of a total of 25 queries and 9 real-world interconnected datasets. FedBench queries are further divided into three main categories: (1) 7 queries from Life Sciences (LS) domain, (2) 7 queries from Cross Domain (CD), and (3) 11 queries named Linked Data (LD) for link traversal-based approaches. The detailed statistics of the benchmark's datasets and queries are given in FedBench\cite{fedbench2011}.
+\item \textbf{FedBench} is federated SPARQL querying benchmarks. It comprises of a total of 25 queries and 9 real-world interconnected datasets. FedBench queries are further divided into three main categories: (1) 7 queries from Life Sciences (LS) domain, (2) 7 queries from Cross Domain (CD), and (3) 11 queries named Linked Data (LD) for link traversal-based approaches. The detailed statistics of the benchmark's datasets and queries are given in FedBench~\cite{fedbench2011}.
 
 \item  \textbf{LargeRDFBench} is also a federated SPARQL querying benchmark. It comprises a total of 40 queries and 13 real-world interconnected datasets. FedBench queries are further divided into four main categories: (1) 14 \emph{Simple} queries, (2) 10 \emph{Complex} queries, (3)  8 \emph{Large Data} queries, and (4) 8 \emph{Complex+High Data Sources} queries. The detailed statistics of the benchmark's datasets and queries are given in \cite{largerdfbench2017}. 
 
@@ -1113,11 +1113,11 @@ The time consumed can be observed on \cref{fig:time600Laundromat}, which shows t
 	\label{fig:time600Laundromat}
 \end{figure}
 
-As we are using WimuQ\cite{valdestilhas2019more} to identify datasets for a given SPARQL query together with our matching algorithm, we can answer the question (2) based on famous Sparql queries from two real-data federated SPARQL querying benchmarks \emph{LargeRDFBench} \cite{largerdfbench2017},\emph{FedBench} \cite{fedbench2011} and one non-federated real data SPARQL benchmark selected from \emph{FEASIBLE} \cite{feasible2015} benchmarks generation framework is given in Figure \ref{fig:numberDatasets1}. Thus, from the selected datasets we use our approach to select the datasets according to the properties and classes they share among them\footnote{In this case, all datasets identified by wimuQ are sharing properties and classes, that is why we are using the graph from \cite{valdestilhas2019more}.}.
+As we are using WimuQ~\cite{valdestilhas2019more} to identify datasets for a given SPARQL query together with our matching algorithm, we can answer the question (2) based on famous Sparql queries from two real-data federated SPARQL querying benchmarks \emph{LargeRDFBench} \cite{largerdfbench2017},\emph{FedBench} \cite{fedbench2011} and one non-federated real data SPARQL benchmark selected from \emph{FEASIBLE} \cite{feasible2015} benchmarks generation framework is given in Figure \ref{fig:numberDatasets1}. Thus, from the selected datasets we use our approach to select the datasets according to the properties and classes they share among them\footnote{In this case, all datasets identified by wimuQ are sharing properties and classes, that is why we are using the graph from \cite{valdestilhas2019more}.}.
 % \begin{figure}[htb]
 % \centering
 %     \includegraphics[width=\linewidth]{img/numberDatasets1.pdf}
-% 	\caption{Average number of datasets discovered and queried by WimuQ\cite{valdestilhas2019more} across different queries categories of the selected benchmarks.}
+% 	\caption{Average number of datasets discovered and queried by WimuQ~\cite{valdestilhas2019more} across different queries categories of the selected benchmarks.}
 % 	\label{fig:numberDatasets1}
 % \end{figure}
 
@@ -1170,7 +1170,7 @@ Where \textbf{DsPropMatch} on the \cref{tab:match} refers to the number of prope
 
 We can observe the quantity of properties/classes that the datasets share related to the number of triples analysed. For instance, from 600 datasets, 291 matches where found, in which the number of triples was almost the double size of the previous case. Thus, the number of matches in this case cannot be directly related to the number of triples. Due to this fact, the quality of the datasets should be considerate a important phase.
 
-We evaluate the accuracy of our matching algorithm with a small sample, where we can see at \cref{fig:fmeasure}, \cref{tab:TableFmeasure} and \cref{fig:runtimeSimilarMatch} the F-Measure and run-time on six famous pairs of datasets from\cite{georgala2018dynamic}, with those datasets we create a gold standard to compare, in which $P_1...P_n$ represents the pair of datasets and P1, P2 are datasets synthetically generated by the author, i.e. P3 represents the comparison between the datasets Abt and Buy.
+We evaluate the accuracy of our matching algorithm with a small sample, where we can see at \cref{fig:fmeasure}, \cref{tab:TableFmeasure} and \cref{fig:runtimeSimilarMatch} the F-Measure and run-time on six famous pairs of datasets from~\cite{georgala2018dynamic}, with those datasets we create a gold standard to compare, in which $P_1...P_n$ represents the pair of datasets and P1, P2 are datasets synthetically generated by the author, i.e. P3 represents the comparison between the datasets Abt and Buy.
 
 \begin{figure}[htb] 
 	\centering
@@ -1192,7 +1192,7 @@ Among the HDT files from LOD Laundromat, \SI{2.3}{\percent} of them could not be
 Another relevant point is that \SI{99.2}{\percent} of the URIs indexed with WIMU come from LOD Laundromat, due to \SI{69.8}{\percent} of datasets from LODstats contain parser errors in which WIMU was not able to process the data.
 %https://docs.google.com/spreadsheets/d/15kh8E4WllXG5Xdp1aL-JiHvnXAiVC6a8XqVUJ1gtMZ8/edit?usp=sharing
 
-To answer the question (4) we selected 10 queries\footnote{The queries are available here: \url{https://github.com/firmao/LDatasetGenerator/blob/master/10_Queries_fedbench.txt}} from FedBench\cite{fedbench2011}, where we can observe on the \cref{fig:wimuQRelodDatasets} that thanks to the ReLOD approach we could increase the number of datasets identified by wimuQ, i.e., in query 5, using ReLOD allowed us to find 2 more datasets containing complementary information. 
+To answer the question (4) we selected 10 queries\footnote{The queries are available here: \url{https://github.com/firmao/LDatasetGenerator/blob/master/10_Queries_fedbench.txt}} from FedBench~\cite{fedbench2011}, where we can observe on the \cref{fig:wimuQRelodDatasets} that thanks to the ReLOD approach we could increase the number of datasets identified by wimuQ, i.e., in query 5, using ReLOD allowed us to find 2 more datasets containing complementary information. 
 
 On the other hand, the \cref{fig:wimuQRelodResults} reinforces that more datasets do not always imply in more results, i.e., in query 2 and 4, more datasets were identified, but the number of results did not change, in this case, the reason was that the datasets identified by ReLOD were practically the same with different property and class names. The results from queries 6 to 10 were only found thanks to the ReLOD approach\footnote{The query number 9 obtained only one result with the new approach.}.
 
@@ -1217,11 +1217,11 @@ With WIMU~\cite{valdestilhas2018my}, we provide a database index of URIs and the
 In order to make this data available and easy to use, we developed a Semantic Web service\footnote{\url{http://wimu.aksw.org/}}.
 For a given URI, it is possible to know the dataset the URI likely was defined in using a heuristic based on the number of literals.
 
-With wimuQ\cite{valdestilhas2019more}, we presented an approach to execute SPARQL queries over a large amount of heterogeneous RDF data sources available from different interfaces and in different formats. We made use of the Wimu service to identify the potentially relevant sources to the qiven SPARQL query. We discussed two main types of federated SPARQL query processing approaches namely the endpoints federation and traversal-based federation. The former type of federation only able to execute federated queries over the data available from SPARQL endpoint. While the later, faces problem of URI's dereferenceability. To overcome these issues we proposed a hybrid (endpoints+link-traversal-based) federation engines which integrates four different types of SPARQL query processing engines. Currently, WimuQ\footnote{\url{https://w3id.org/wimuq/}} able to execute both federated and non-federated SPARQL queries over a total of \SI{668}{\kilo\nothing} datasets available from LOD Stats, LOD Laudromat, and LOD cloud active SPARQL endpoints. We evaluated WimuQ by using three state-of-the-art real-data SPARQL benchmarks. We showed that WimuQ is able to successful execute (with some results) majority of the benchmark queries without any prior knowledge of the data sources. In addition, the WimuQ resultset recall is higher with reasonable query execution times. 
+With wimuQ~\cite{valdestilhas2019more}, we presented an approach to execute SPARQL queries over a large amount of heterogeneous RDF data sources available from different interfaces and in different formats. We made use of the Wimu service to identify the potentially relevant sources to the qiven SPARQL query. We discussed two main types of federated SPARQL query processing approaches namely the endpoints federation and traversal-based federation. The former type of federation only able to execute federated queries over the data available from SPARQL endpoint. While the later, faces problem of URI's dereferenceability. To overcome these issues we proposed a hybrid (endpoints+link-traversal-based) federation engines which integrates four different types of SPARQL query processing engines. Currently, WimuQ\footnote{\url{https://w3id.org/wimuq/}} able to execute both federated and non-federated SPARQL queries over a total of \SI{668}{\kilo\nothing} datasets available from LOD Stats, LOD Laudromat, and LOD cloud active SPARQL endpoints. We evaluated WimuQ by using three state-of-the-art real-data SPARQL benchmarks. We showed that WimuQ is able to successful execute (with some results) majority of the benchmark queries without any prior knowledge of the data sources. In addition, the WimuQ resultset recall is higher with reasonable query execution times. 
 
 With \texttt{ReLOD}\footnote{\url{https://w3id.org/relod}}, we present a method to create a repository to store the similarity between a large number of datasets involving the detection of duplicated datasets and dataset chunks.
 
-The method involves the creation of an index over a total of \num{668166} datasets from LOD Stats and LOD Laundromat as well as 559 active SPARQL endpoints, representing a total of 221.7 billion triples from more than 5 terabytes of information from datasets partially retrieved using the service ``Where is My URI'' (WIMU)\cite{valdestilhas2018my}, in which the query engine wimuQ\cite{valdestilhas2019more} uses the ReLOD to identify the most similar datasets increasing the number of results. 
+The method involves the creation of an index over a total of \num{668166} datasets from LOD Stats and LOD Laundromat as well as 559 active SPARQL endpoints, representing a total of 221.7 billion triples from more than 5 terabytes of information from datasets partially retrieved using the service ``Where is My URI'' (WIMU)\cite{valdestilhas2018my}, in which the query engine wimuQ~\cite{valdestilhas2019more} uses the ReLOD to identify the most similar datasets increasing the number of results. 
 
 For the first time, to the best of our knowledge, we make a relation index that can query by dataset URI, property, class, or SPARQL query.
 

@@ -200,10 +200,24 @@ VU University Amsterdam (VUA)
 %\end{review}
 
 \begin{abstract}
-Although we have witnessed a growing adoption of Linked Open Data principles for publishing data on the Web, connecting data to third parties remains a difficult and time-consuming task. One question that often raises during the publication process is: ``Is there any data set available on the Web we can connect with?". This simple question unfolds a set of others that hinders data publishers to connect to other data sources. For instance, if there are related data sets, where are they? How many? Do they share concepts and properties? How similar are they? Is there any duplicated data set? How to identify and query a huge amount of heterogeneous datasets.
-To answer these questions, this paper introduces: (i) a new class of data repositories; (ii) a method to identify datasets containing a given URI; (iii) a query engine and source selection in a large RDF dataset collection; (iv) a novel method to detect and store data set similarities including duplicated data set and data set chunk detection; (v) an index to store data set relatedness; and, (vi) a search engine to find related data sets.
-To create the index, we harvested more than \SI{668}{\kilo\nothing} data sets from LOD Stats and LOD Laundromat, along with 559 active SPARQL endpoints corresponding to 221.7 billion triples or 5 terabytes of data. 
-Our evaluation on state-of-the-art real-data shows that more than \SI{90}{\percent} of data sets in the LOD Laundromat do not use \textit{owl:equivalentProperty} or \textit{owl:equivalentClass} to relate to one another data, which reaffirms and emphasizes the importance of our work.
+Although we have witnessed a growing adoption of Linked Open Data principles for publishing data on the Web, connecting data to third parties remains a difficult and time-consuming task.
+One question that is often asked during the publication process is: ``Is there any data set available on the Web we can connect with?".
+This simple question unfolds a set of others that hinders data publishers to connect to other data sources.
+For instance, if there are related data sets, where are they?
+How many? Do they share concepts and properties?
+How similar are they?
+Is there any duplicated data set?
+How to identify and query a huge amount of heterogeneous datasets?
+To answer these questions, this paper introduces:
+(i) a new class of data repositories,
+(ii) a method to identify datasets containing a given URI,
+(iii) a query engine and source selection in a large RDF dataset collection,
+(iv) a novel method to detect and store data set similarities including duplicated data set and data set chunk detection,
+(v) an index to store data set relatedness and,
+(vi) a search engine to find related data sets.
+To create the index, we harvested more than \SI{668}{\kilo\nothing} data sets from LOD Stats and LOD Laundromat, along with 559 active SPARQL endpoints corresponding to \num{221.7} billion triples or \SI{5}{\tebi\byte} of data.
+% KH: I rewrote the ending of the last sentence but it could still be improved.
+Our evaluation on state-of-the-art real data shows that more than \SI{90}{\percent} of data sets in the LOD Laundromat do not use \aurl{owl}{equivalentProperty} or \aurl{owl}{equivalentClass} and thus present a use case for generating links using the index.
 \end{abstract}
 
 \begin{keyword}
